@@ -6,19 +6,22 @@
 
 ## 建議閱讀順序
 
-1. [簡報架構與內容](01-slides/A1_簡報架構與內容.md)
-2. [Task Prompt](03-prompt/task-prompt.md)
-3. [去識別化設備報修流程說明](04-input/設備報修流程說明.md)
-4. [flow-chart-creator Skill](06-.claude/skills/flow-chart-creator/SKILL.md)
-5. [流程說明文件模板](06-.claude/skills/flow-chart-creator/references/flow-desc-template.md)
-6. [流程圖繪圖規格](06-.claude/skills/flow-chart-creator/references/drawing-spec.md)
+1. 簡報
+2. [Demo 影片｜子流程 1：進入即時語音平台](02-demo-video/Flow1-進入即時語音平台.mov)
+3. [Task Prompt](03-prompt/task-prompt.md)
+4. [Input｜設備報修流程說明文件](04-input/設備報修流程說明.md)
+5. Output
+6. [Skill｜flow-chart-creator](06-.claude/skills/flow-chart-creator/SKILL.md)
+7. Reference
+   - 7-1. [流程說明文件模板](06-.claude/skills/flow-chart-creator/references/flow-desc-template.md)
+   - 7-2. [流程圖繪圖規格](06-.claude/skills/flow-chart-creator/references/drawing-spec.md)
 
 ## 工作流程
 
 ```text
 Task Prompt
 → flow-chart-creator Skill
-→ 讀取並分析流程說明文件
+→ 分析既有流程說明文件，或引導使用者建立流程說明文件
 → 使用者確認流程內容
 → Claude Fable 5 生成 draw.io XML
 → draw.io MCP 開啟網頁版
@@ -34,7 +37,6 @@ Task Prompt
 | `flow-chart-creator` Skill | 規範流程梳理、確認、繪圖及檢查步驟 |
 | draw.io MCP | 接收 XML 並開啟 draw.io 網頁版 |
 | draw.io 網頁版 | 渲染、人工修改及定稿流程圖 |
-| OpenAI Codex | 協助整理簡報架構、修訂文字及檢查專案文件 |
 
 ## 資料夾結構
 
@@ -43,14 +45,15 @@ aipost-a1-ai-workflow-flowchart/
 ├── README.md
 ├── 01-slides/
 │   └── A1_簡報架構與內容.md
-├── 02-demo-video/                 # Demo 影片，整理後補入
+├── 02-demo-video/
+│   └── Flow1-進入即時語音平台.mov
 ├── 03-prompt/
 │   └── task-prompt.md
 ├── 04-input/
 │   └── 設備報修流程說明.md
-├── 05-output/                     # draw.io 成果，整理後補入
-│   ├── existing-document/
-│   └── without-document/
+├── 05-output/
+│   ├── ai-original/
+│   └── human-revised/
 └── 06-.claude/
     └── skills/
         └── flow-chart-creator/
@@ -64,7 +67,6 @@ aipost-a1-ai-workflow-flowchart/
 
 - 本專案輸入文件已進行去識別化處理。
 - Repository 不包含公司內部入口、帳號資訊、API 金鑰或本機 Claude Code 權限設定。
-- Demo 影片與流程圖成果目前暫存於 Repository 外，待完成檔名與容量整理後再加入。
 
 ## 作者
 
